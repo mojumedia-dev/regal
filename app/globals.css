@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-regal-navy: #0a1f44;
+  --color-regal-gold: #d4af37;
+  --color-regal-gold-light: #f4e4bc;
+  --color-regal-white: #ffffff;
+  --color-regal-gray-light: #f8f9fa;
+  --color-regal-gray-dark: #2c3e50;
+}
+
+body {
+  background-color: white;
+  color: var(--color-regal-gray-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, serif;
+  color: var(--color-regal-navy);
+}
+
+.btn-primary {
+  background-color: var(--color-regal-gold);
+  color: var(--color-regal-navy);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-regal-gold-light);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.btn-secondary {
+  background-color: var(--color-regal-navy);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-family: Georgia, serif;
+  color: var(--color-regal-navy);
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: rgb(75 85 99);
+  margin-bottom: 2rem;
+}

@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Regal Homes Utah - Dynamic Website
 
-## Getting Started
+This is the public-facing website for Regal Homes Utah, built with Next.js 14, TypeScript, and Tailwind CSS. The website dynamically fetches data from the Regal Homes Price Tool API.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **ISR (Incremental Static Regeneration)** with 1-hour revalidation
+
+## Project Structure
+
+```
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Home page
+│   ├── communities/       # Communities listing & detail
+│   ├── floorplans/        # All floor plans
+│   ├── about/             # About page
+│   ├── contact/           # Contact form
+│   ├── process/           # Building process
+│   ├── layout.tsx         # Root layout
+│   └── globals.css        # Global styles
+├── components/            # Reusable components
+│   ├── Header.tsx        # Navigation
+│   └── Footer.tsx        # Footer
+├── lib/                  # Utilities
+│   └── api.ts           # API client & types
+└── public/              # Static assets
+    └── images/          # Images (logo, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Home** (`/`) - Hero, featured communities, CTA sections
+2. **Communities** (`/communities`) - Grid of all communities
+3. **Community Detail** (`/communities/[slug]`) - Full community page with plans, homes, and homesites
+4. **Floor Plans** (`/floorplans`) - All plans across all communities with filtering
+5. **About** (`/about`) - Company story and values
+6. **Contact** (`/contact`) - Contact form and office locations
+7. **Process** (`/process`) - 4-step home buying process
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design System
 
-## Learn More
+### Colors
+- **Navy**: `#0a1f44` - Primary brand color
+- **Gold**: `#d4af37` - Accent color (luxury feel)
+- **Gold Light**: `#f4e4bc` - Secondary accent
+- **Gray Light**: `#f8f9fa` - Backgrounds
+- **Gray Dark**: `#2c3e50` - Text
 
-To learn more about Next.js, take a look at the following resources:
+### Typography
+- **Headings**: Georgia serif (regal feel)
+- **Body**: Inter sans-serif (readability)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create a `.env.local` file:
 
-## Deploy on Vercel
+```env
+NEXT_PUBLIC_API_URL=https://regal-homes-price-tool-production-0d02.up.railway.app
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## API Integration
+
+The website fetches data from the Price Tool's public API:
+
+- `GET /api/public/communities` - List all communities
+- `GET /api/public/communities/:slug` - Community detail
+- `GET /api/public/plans/:id` - Single plan
+- `GET /api/public/available-homes` - All available homes
+- `GET /api/public/stats` - Summary statistics
+
+Data is cached and revalidated every hour using Next.js ISR.
+
+## Deployment
+
+This site can be deployed to:
+
+- **Vercel** (recommended for Next.js)
+- **Netlify**
+- **Railway**
+- Any Node.js hosting platform
+
+### Vercel Deployment
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+## Communities
+
+- **Parkside** - Mapleton, UT
+- **Bella Vita** - Mapleton, UT
+- **Bristol Farms** - Ogden/West Weber, UT
+- **Amanti Lago** - Heber City, UT (Luxury)
+- **Windflower** - Heber City, UT
+
+## Features
+
+- ✅ Fully responsive mobile-first design
+- ✅ Dynamic data from price tool API
+- ✅ ISR for performance and freshness
+- ✅ Luxury design aesthetic
+- ✅ SEO-friendly with metadata
+- ✅ TypeScript for type safety
+- ✅ Accessible navigation
+- ✅ Contact form with validation
+
+## Future Enhancements
+
+- [ ] Add image gallery for communities
+- [ ] Interactive floor plan viewers
+- [ ] Virtual tour integration
+- [ ] Testimonials section
+- [ ] Blog/news section
+- [ ] Mortgage calculator
+- [ ] Favorites/comparison feature
+
+## License
+
+© 2026 Regal Homes Utah. All rights reserved.

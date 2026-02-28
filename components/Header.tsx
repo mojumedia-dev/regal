@@ -11,6 +11,7 @@ export default function Header() {
     { href: '/', label: 'Home' },
     { href: '/communities', label: 'Communities' },
     { href: '/floorplans', label: 'Floor Plans' },
+    { href: '/design-center', label: 'Design Center' },
     { href: '/process', label: 'Our Process' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
